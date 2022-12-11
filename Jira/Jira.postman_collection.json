@@ -447,6 +447,54 @@
 			"response": []
 		},
 		{
+			"name": "Create issue (Subtask)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"update\": {},\n  \"fields\": {\n    \"summary\": \"Add \\\"Create issue (subtask)\\\" for Jira\",\n    \"issuetype\": {\n      \"id\": \"10003\"\n    },\n    \"parent\": {\n      \"key\": \"ST-91\"\n    },\n    \"project\": {\n      \"key\": \"ST\"\n    }\n  }\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/rest/api/3/issue",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"issue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Create issue (Epic)",
 			"request": {
 				"auth": {
