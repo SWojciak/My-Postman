@@ -399,6 +399,54 @@
 			"response": []
 		},
 		{
+			"name": "Create issue (Epic)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"update\": {},\n  \"fields\": {\n    \"summary\": \"test issue\",\n    \"issuetype\": {\n      \"id\": \"10002\"\n    },\n    \"project\": {\n      \"key\": \"ST\"\n    }\n  }\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/rest/api/3/issue",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"issue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Create issue (Task)",
 			"request": {
 				"auth": {
@@ -495,54 +543,6 @@
 			"response": []
 		},
 		{
-			"name": "Create issue (Epic)",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{token}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{username}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"update\": {},\n  \"fields\": {\n    \"summary\": \"test issue\",\n    \"issuetype\": {\n      \"id\": \"10002\"\n    },\n    \"project\": {\n      \"key\": \"ST\"\n    }\n  }\n}"
-				},
-				"url": {
-					"raw": "{{base_url}}/rest/api/3/issue",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"rest",
-						"api",
-						"3",
-						"issue"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Delete issue",
 			"request": {
 				"auth": {
@@ -573,6 +573,98 @@
 						"3",
 						"issue",
 						"{{issueKey}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get transitions",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/rest/api/3/issue/{{issueKey}}/transitions",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"issue",
+						"{{issueKey}}",
+						"transitions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transition issue",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"transition\": {\n    \"id\": \"4\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/rest/api/3/issue/{{issueKey}}/transitions",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"issue",
+						"{{issueKey}}",
+						"transitions"
 					]
 				}
 			},
