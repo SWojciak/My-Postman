@@ -139,7 +139,30 @@
 						"exec": [
 							"pm.test(\"Status code is 201\", function () {\r",
 							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Check author\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.author).to.eql(pm.environment.get(\"randomName\"));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check title\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.title).to.eql(pm.globals.get(\"title\"));\r",
 							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.variables.replaceIn('{{$randomFullName}}')\r",
+							"\r",
+							"pm.environment.set(\"randomName\", pm.variables.replaceIn('{{$randomFullName}}'));"
 						],
 						"type": "text/javascript"
 					}
@@ -150,7 +173,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "    { \r\n        \"title\": \"json-server\",\r\n        \"author\": \"typicode\"\r\n    }",
+					"raw": "    { \r\n        \"title\": \"{{title}}\",\r\n        \"author\": \"{{randomName}}\"\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -256,6 +279,77 @@
 			"response": []
 		},
 		{
+			"name": "Dodawanie posta do usunięcia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Check author\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.author).to.eql(pm.environment.get(\"randomName\"));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check title\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.title).to.eql(pm.globals.get(\"title\"));\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.globals.set(\"postIdDelete\",pm.response.json().id);\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.variables.replaceIn('{{$randomFullName}}')\r",
+							"\r",
+							"pm.environment.set(\"randomName\", pm.variables.replaceIn('{{$randomFullName}}'));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    { \r\n        \"title\": \"{{title}}\",\r\n        \"author\": \"{{randomName}}\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host}}:3000/posts",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "3000",
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Usuwanie posta",
 			"event": [
 				{
@@ -274,7 +368,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://{{host}}:3000/posts/2",
+					"raw": "http://{{host}}:3000/posts/{{postIdToDelete}}",
 					"protocol": "http",
 					"host": [
 						"{{host}}"
@@ -282,7 +376,7 @@
 					"port": "3000",
 					"path": [
 						"posts",
-						"2"
+						"{{postIdToDelete}}"
 					]
 				}
 			},
