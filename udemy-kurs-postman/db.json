@@ -6,203 +6,154 @@
       "author": "typicode"
     },
     {
-      "title": "json-server4",
+      "title": "globalny tytuł2",
+      "author": "Mrs. Ann McLaughlin",
+      "id": 2
+    },
+    {
+      "title": "globalny tytuł2",
+      "author": "Marcos Keeling MD",
       "id": 3
     },
     {
-      "title": "json-server4",
-      "author": "typicode",
+      "title": "globalny tytuł2",
+      "author": "Grady Fadel",
       "id": 4
     },
     {
-      "title": "json-server",
-      "author": "typicode",
+      "title": "globalny tytuł2",
+      "author": "Ira Hilpert",
       "id": 5
     },
     {
-      "title": "json-server",
-      "author": "typicode",
+      "title": "Przewieszenie",
+      "author": "Remigiusz Mróz",
       "id": 6
     },
     {
-      "title": "json-server",
-      "author": "typicode",
+      "title": "Halny",
+      "author": "Remigiusz Mróz",
       "id": 7
     },
     {
-      "title": "json-server",
-      "author": "typicode",
+      "title": "Iluzjonista",
+      "author": "Remigiusz Mróz",
       "id": 8
     },
     {
-      "title": "json-server",
-      "author": "typicode",
+      "title": "Zerwa",
+      "author": "Remigiusz Mróz",
       "id": 9
     },
     {
-      "title": "json-server",
-      "author": "typicode",
+      "title": "Przewieszenie",
+      "author": "Remigiusz Mróz",
       "id": 10
     },
     {
-      "title": "json-server",
-      "author": "typicode",
+      "title": "Halny",
+      "author": "Remigiusz Mróz",
       "id": 11
     },
     {
-      "title": "json-server",
-      "author": "typicode",
+      "title": "Iluzjonista",
+      "author": "Remigiusz Mróz",
       "id": 12
     },
     {
-      "title": "json-server",
-      "author": "typicode",
+      "title": "Zerwa",
+      "author": "Remigiusz Mróz",
       "id": 13
     },
     {
-      "title": "json-server",
-      "author": "typicode",
+      "title": "Przewieszenie",
+      "author": "Remigiusz Mróz",
       "id": 14
     },
     {
-      "title": "json-server",
-      "author": "typicode",
+      "title": "Halny",
+      "author": "Remigiusz Mróz",
       "id": 15
     },
     {
-      "title": "json-server",
-      "author": "typicode",
+      "title": "Iluzjonista",
+      "author": "Remigiusz Mróz",
       "id": 16
     },
     {
-      "title": "json-server",
-      "author": "typicode",
+      "title": "Zerwa",
+      "author": "Remigiusz Mróz",
       "id": 17
     },
     {
-      "title": "json-server",
-      "author": "typicode",
+      "title": "Przewieszenie",
+      "author": "Remigiusz Mróz",
       "id": 18
     },
     {
-      "title": "json-server",
-      "author": "typicode",
+      "title": "Halny",
+      "author": "Remigiusz Mróz",
       "id": 19
     },
     {
-      "title": "json-server",
-      "author": "typicode",
+      "title": "Iluzjonista",
+      "author": "Remigiusz Mróz",
       "id": 20
     },
     {
-      "title": "json-server",
-      "author": "typicode",
+      "title": "Zerwa",
+      "author": "Remigiusz Mróz",
       "id": 21
     },
     {
-      "title": "json-server",
-      "author": "typicode",
+      "title": "{{tytul}}",
+      "author": "{{autor}}",
       "id": 22
     },
     {
-      "title": "globalny tytuł",
-      "author": "globalny autor",
+      "title": "Przewieszenie",
+      "author": "Remigiusz Mróz",
       "id": 23
     },
     {
-      "title": "globalny tytuł",
-      "author": "globalny autor",
+      "title": "Halny",
+      "author": "Remigiusz Mróz",
       "id": 24
     },
     {
-      "title": "globalny tytuł",
-      "author": "globalny autor",
+      "title": "Iluzjonista",
+      "author": "Remigiusz Mróz",
       "id": 25
     },
     {
-      "title": "globalny tytuł2",
-      "author": "globalny autor2",
+      "title": "Zerwa",
+      "author": "Remigiusz Mróz",
       "id": 26
     },
     {
-      "title": "globalny tytuł2",
-      "author": "globalny autor2",
+      "title": "{{tytul}}",
+      "author": "{{autor}}",
       "id": 27
     },
     {
-      "title": "globalny tytuł2",
-      "author": "globalny autor2",
+      "title": "Przewieszenie",
+      "author": "Remigiusz Mróz",
       "id": 28
     },
     {
-      "title": "globalny tytuł2",
-      "author": "globalny autor2",
+      "title": "Halny",
+      "author": "Remigiusz Mróz",
       "id": 29
     },
     {
-      "title": "globalny tytuł2",
-      "author": "author TEST",
+      "title": "Iluzjonista",
+      "author": "Remigiusz Mróz",
       "id": 30
     },
     {
-      "title": "globalny tytuł2",
-      "author": "author DEV",
+      "title": "Zerwa",
+      "author": "Remigiusz Mróz",
       "id": 31
-    },
-    {
-      "title": "globalny tytuł2",
-      "author": "author DEV",
-      "id": 32
-    },
-    {
-      "title": "globalny tytuł2",
-      "author": "author DEV",
-      "id": 33
-    },
-    {
-      "title": "globalny tytuł2",
-      "author": "author DEV",
-      "id": 34
-    },
-    {
-      "title": "globalny tytuł2",
-      "author": "Mable Okuneva",
-      "id": 35
-    },
-    {
-      "title": "globalny tytuł2",
-      "author": "Rhonda Tremblay",
-      "id": 36
-    },
-    {
-      "title": "globalny tytuł2",
-      "author": "Pamela Zboncak",
-      "id": 37
-    },
-    {
-      "title": "globalny tytuł2",
-      "author": "Ms. Emanuel Konopelski",
-      "id": 38
-    },
-    {
-      "title": "globalny tytuł2",
-      "author": "Israel Hane",
-      "id": 39
-    },
-    {
-      "title": "globalny tytuł2",
-      "author": "Joey Mante",
-      "id": 40
-    },
-    {
-      "title": "globalny tytuł2",
-      "author": "Mrs. Malcolm Bruen",
-      "id": 41
-    },
-    {
-      "title": "globalny tytuł2",
-      "author": "Olivia Lowe III",
-      "id": 42
     }
   ],
   "comments": [
@@ -212,53 +163,81 @@
       "postId": 1
     },
     {
-      "body": "some comment updated",
+      "body": "some comment",
+      "postId": 1,
+      "id": 2
+    },
+    {
+      "body": "{{comment}}",
+      "username": "{{username}}",
+      "postId": 1,
       "id": 3
     },
     {
-      "body": "some comment updated",
+      "body": "I am a boss",
+      "username": "matt",
       "postId": 1,
       "id": 4
     },
     {
-      "body": "some comment",
+      "body": "you are not",
+      "username": "tom",
       "postId": 1,
       "id": 5
     },
     {
-      "body": "some comment",
+      "body": "Boys calm down",
+      "username": "andrew",
       "postId": 1,
       "id": 6
     },
     {
-      "body": "some comment",
+      "body": "{{comment}}",
+      "username": "{{username}}",
       "postId": 1,
       "id": 7
     },
     {
-      "body": "some comment",
+      "body": "{{comment}}",
+      "username": "{{username}}",
       "postId": 1,
       "id": 8
     },
     {
-      "body": "some comment",
+      "body": "{{comment}}",
+      "username": "{{username}}",
       "postId": 1,
       "id": 9
     },
     {
-      "body": "some comment",
+      "body": "{{comment}}",
+      "username": "{{username}}",
       "postId": 1,
       "id": 10
     },
     {
-      "body": "some comment",
+      "body": "{{comment}}",
+      "username": "{{username}}",
       "postId": 1,
       "id": 11
     },
     {
-      "body": "some comment",
+      "body": "{{comment}}",
+      "username": "{{username}}",
       "postId": 1,
       "id": 12
+    },
+    {
+      "body": "{{comment}}",
+      "username": "{{username}}",
+      "postId": 1,
+      "id": 13
+    },
+    {
+      "body": "{{comment}}",
+      "username": "{{username}}",
+      "postId": 1,
+      "id": 14
     }
   ],
   "profile": {

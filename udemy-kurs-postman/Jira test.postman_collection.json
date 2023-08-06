@@ -1,0 +1,472 @@
+{
+	"info": {
+		"_postman_id": "284460c9-6463-4b8f-ab6f-c804507657fc",
+		"name": "Jira test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19136308"
+	},
+	"item": [
+		{
+			"name": "Create filter",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.environment.set(\"filterName\", \"newFilter\" + pm.variables.replaceIn('{{$timestamp}}'));"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check description\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.description).to.eql(\"Lists all open stories\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.contain(\"newFilter\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{filterName}}\",\r\n    \"description\": \"Lists all open stories\",\r\n    \"jql\": \"type = Story and resolution is empty\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://swojciak.atlassian.net/rest/api/latest/filter",
+					"protocol": "https",
+					"host": [
+						"swojciak",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"latest",
+						"filter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create filter with the same name",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check error message\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.errors[\"filterName\"]).to.eql(\"Filter with same name already exists.\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"All Open Bugs\",\r\n    \"description\": \"Lists all open stories\",\r\n    \"jql\": \"type = Story and resolution is empty\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://swojciak.atlassian.net/rest/api/latest/filter",
+					"protocol": "https",
+					"host": [
+						"swojciak",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"latest",
+						"filter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get filter",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check filter name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(\"All Open Bugs\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check filter description\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.description).to.contain(\"bugs\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swojciak.atlassian.net/rest/api/latest/filter/10002",
+					"protocol": "https",
+					"host": [
+						"swojciak",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"latest",
+						"filter",
+						"10002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get filter which does not exist",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check error message\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.errorMessages[0]).to.eql(\"The selected filter is not available to you, perhaps it has been deleted or had its permissions changed.\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swojciak.atlassian.net/rest/api/latest/filter/1",
+					"protocol": "https",
+					"host": [
+						"swojciak",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"latest",
+						"filter",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update filter",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.environment.set(\"filterNameAfterUpdate\", \"updatedFilter\" + pm.variables.replaceIn('{{$timestamp}}'));"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check description\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.description).to.eql(\"Lists all open stories\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.contain(\"updatedFilter\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{filterNameAfterUpdate}}\",\r\n    \"description\": \"Lists all open stories\",\r\n    \"jql\": \"type = Story and resolution is empty\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://swojciak.atlassian.net/rest/api/latest/filter/10003",
+					"protocol": "https",
+					"host": [
+						"swojciak",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"latest",
+						"filter",
+						"10003"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create filter to delete",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.environment.set(\"filterNameToDelete\", \"filterToDelete\" + pm.variables.replaceIn('{{$timestamp}}'));"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check description\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.description).to.eql(\"Lists all open stories\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.contain(\"filterToDelete\");\r",
+							"});\r",
+							"\r",
+							"pm.globals.set(\"idToDelete\", pm.response.json().id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{filterNameToDelete}}\",\r\n    \"description\": \"Lists all open stories\",\r\n    \"jql\": \"type = Story and resolution is empty\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://swojciak.atlassian.net/rest/api/latest/filter",
+					"protocol": "https",
+					"host": [
+						"swojciak",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"latest",
+						"filter"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
